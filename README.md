@@ -1,13 +1,10 @@
-
-#  Todo List App
+# Todo List App
 
 The application was developed by React JS. Where the user can perform a crud operation on a to-do task. Todos are visualized with a filtering system. Such as searching, sorting, and filtering.
-
 
 ## Author
 
 - [@ShahriarShaikat](https://www.github.com/ShahriarShaikat)
-
 
 ## Features
 
@@ -23,8 +20,11 @@ The application was developed by React JS. Where the user can perform a crud ope
 - Persist data from localstorage for better experience
 - & so on
 
+## Dependencies
 
-
+- "react": "^18.2.0"
+- "react-dom": "^18.2.0"
+- "react-toastify": "^10.0.4"
 
 ## Run Locally
 
@@ -52,8 +52,6 @@ Start the server
   npm run dev
 ```
 
-
 ## Appendix
 
 To avoid prop drilling situation on complex state structure, I have use context api from react
-
