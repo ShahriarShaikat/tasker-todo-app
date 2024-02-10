@@ -1,17 +1,42 @@
 //import { useState } from "react";
 import Task from "./Task";
 import taskImage from "../../assets/file-list-3-fill.png";
-import { useSearch, useTasks } from "../../context/taskContext.jsx";
+import {
+  useFilter,
+  useSearch,
+  useSort,
+  useTasks,
+} from "../../context/taskContext.jsx";
+import {
+  getTaskByPriority,
+  getTaskByFilter,
+  getTaskBySearch,
+} from "../../utils/TaskFilter.js";
 
 export default function TaskList({ onModalShow }) {
   const { tasks, dispatch } = useTasks();
   const { keyword } = useSearch();
+  const { sort } = useSort();
+  const { filter: filterkey } = useFilter();
 
   let filterTask = tasks.slice();
-  if (keyword.length > 0 && filterTask.length > 0) {
-    filterTask = filterTask.filter((task) =>
-      task.title.toLowerCase().includes(keyword.toLowerCase())
-    );
+
+  if (filterTask.length > 0) {
+    if (keyword.length > 0) {
+      filterTask = getTaskBySearch(filterTask, keyword);
+    }
+
+    if (filterkey == "complete") {
+      filterTask = getTaskByFilter(filterTask, true);
+    }
+
+    if (filterkey == "incomplete") {
+      filterTask = getTaskByFilter(filterTask, false);
+    }
+
+    if (sort) {
+      filterTask = getTaskByPriority(filterTask, sort);
+    }
   }
 
   let taskHtml =

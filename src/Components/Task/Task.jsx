@@ -1,4 +1,5 @@
 import { useMode, useModalInputs, useTasks } from "../../context/taskContext";
+import getPriorityColor from "../../utils/Priority";
 import Tags from "./Tags";
 import { toast } from "react-toastify";
 
@@ -24,10 +25,12 @@ export default function Task({ task, onModalShow }) {
     setEditMode(true);
     onModalShow(true);
   };
+
   const handleComplete = () => {
     dispatch({ type: "Task/Handle/Complete", payload: id });
     toast.success(`${title} mark as completed!`);
   };
+
   return (
     <tr className="border-b border-[#2E3443] [&>td]:align-middle [&>td]:px-4 [&>td]:py-2">
       <td>
@@ -52,15 +55,26 @@ export default function Task({ task, onModalShow }) {
         <div>{description}</div>
       </td>
 
-      <td className="text-center">{priority}</td>
+      <td className="text-center">
+        <button
+          disabled
+          className={`border-2 border-solid border-blue-600 rounded-full py-1 px-4 ${getPriorityColor(
+            priority
+          )}`}
+        >
+          {priority}
+        </button>
+      </td>
       <td>
         <div className="flex items-center justify-center space-x-3">
           <button className="text-red-500" onClick={handleDelete}>
             Delete
           </button>
-          <button className="text-blue-500" onClick={handleEdit}>
-            Edit
-          </button>
+          {!complete && (
+            <button className="text-blue-500" onClick={handleEdit}>
+              Edit
+            </button>
+          )}
           {!complete && (
             <button onClick={handleComplete}>
               <svg

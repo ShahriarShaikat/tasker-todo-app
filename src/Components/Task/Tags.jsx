@@ -1,4 +1,4 @@
-import getRandomColor from "../../utils/RandomColor";
+import getRandomColor from "../../utils/Priority";
 
 export default function Tags({ tags }) {
   return (

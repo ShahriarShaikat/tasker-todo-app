@@ -55,14 +55,6 @@ export default function TaskModal({ onClose }) {
             ...modaldata,
           },
         });
-        // const storedData = localStorage.getItem("todotasker");
-        // if (storedData) {
-        //   const tasks = JSON.parse(storedData);
-        //   const updatedTasks = [...tasks, payload];
-        //   localStorage.setItem("todotasker", JSON.stringify(updatedTasks));
-        // } else {
-        //   localStorage.setItem("todotasker", JSON.stringify([payload]));
-        // }
 
         setModaldata({
           id: "",
