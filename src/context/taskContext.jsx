@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import initialTasks from "../data/Task.js";
 import { taskReducer } from "../Reducers/taskReducer.js";
 
@@ -18,6 +24,18 @@ export default function TasksProvider({ children }) {
     priority: "",
     complete: false,
   });
+
+  useEffect(() => {
+    //persist data from the localstorage
+    const storedData = localStorage.getItem("todotasker");
+    if (storedData) {
+      const transformTasks = JSON.parse(storedData);
+      dispatch({ type: "Task/Mount", payload: transformTasks });
+    } else {
+      //store some dummy todos for 1st time visit
+      localStorage.setItem("todotasker", JSON.stringify(initialTasks));
+    }
+  }, []);
 
   return (
     <TaskContext.Provider value={{ tasks, dispatch }}>

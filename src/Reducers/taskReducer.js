@@ -1,34 +1,52 @@
+import updateLocalstorage from "../utils/updateLocalstorage";
+
 export const taskReducer = (state, action) => {
   switch (action.type) {
-    case "Task/Add":
-      return [...state, action.payload];
+    case "Task/Mount":
+      return [...action.payload];
       break;
+
+    case "Task/Add":
+      const updatedTasks = [...state, action.payload];
+      updateLocalstorage(updatedTasks);
+      return updatedTasks;
+      break;
+
     case "Task/Edit":
-      return state.map((x) => {
+      const updatedEditTasks = state.map((x) => {
         if (x.id == action.payload.id) {
           return { ...action.payload };
         }
         return { ...x };
       });
+      updateLocalstorage(updatedEditTasks);
+      return updatedEditTasks;
       break;
+
     case "Task/Delete":
-      return state.filter((x) => x.id != action.payload);
-
+      const updatedDeleteTasks = state.filter((x) => x.id != action.payload);
+      updateLocalstorage(updatedDeleteTasks);
+      return updatedDeleteTasks;
       break;
+
     case "Task/Delete/All":
+      updateLocalstorage([]);
       return [];
-
       break;
+
     case "Task/Handle/Complete":
-      return state.map((x) => {
+      const updatedCompleteTask = state.map((x) => {
         if (x.id == action.payload) {
           return { ...x, complete: true };
         }
         return { ...x };
       });
-
+      updateLocalstorage(updatedCompleteTask);
+      return updatedCompleteTask;
       break;
+
     default:
+      updateLocalstorage(state);
       return state;
   }
 };

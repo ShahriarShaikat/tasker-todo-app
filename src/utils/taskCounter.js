@@ -4,7 +4,6 @@ export function getTaskCountDetails(tasks) {
     incomplete: 0,
     complete: 0,
   };
-  console.log(tasks);
   tasks.forEach((element) => {
     if (element.complete) {
       taskDetails.complete = taskDetails.complete + 1;
