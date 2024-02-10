@@ -66,19 +66,21 @@ export default function TaskHeader({ onShow }) {
 
       <div className="flex items-center space-x-5">
         <TaskFilter />
-        <button
-          className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
-          onClick={onShow}
-        >
-          Add Task
-        </button>
-        <button
-          className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold"
-          onClick={handleDelete}
-          disabled={tasks.length == 0}
-        >
-          Delete All
-        </button>
+        <div className="flex items-center space-x-5">
+          <button
+            className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
+            onClick={onShow}
+          >
+            Add Task
+          </button>
+          <button
+            className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold"
+            onClick={handleDelete}
+            disabled={tasks.length == 0}
+          >
+            Delete All
+          </button>
+        </div>
       </div>
     </div>
   );
