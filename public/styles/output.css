@@ -1141,6 +1141,10 @@ video {
   padding-top: 5rem;
 }
 
+.pb-\[20px\] {
+  padding-bottom: 20px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1318,24 +1322,20 @@ td {
 }
 
 @media (min-width: 640px) {
-  .sm\:mb-4 {
-    margin-bottom: 1rem;
-  }
-
   .sm\:flex {
     display: flex;
-  }
-
-  .sm\:w-full {
-    width: 100%;
   }
 
   .sm\:flex-row {
     flex-direction: row;
   }
 
-  .sm\:gap-4 {
-    gap: 1rem;
+  .sm\:pb-\[114px\] {
+    padding-bottom: 114px;
+  }
+
+  .sm\:text-left {
+    text-align: left;
   }
 }
 
@@ -1522,6 +1522,13 @@ td {
   .xl\:py-2\.5 {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
