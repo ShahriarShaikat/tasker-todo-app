@@ -18,13 +18,13 @@ export default function TaskHeader({ onShow }) {
     }
   };
   return (
-    <div className="mb-14 items-center justify-between sm:flex">
-      <div>
+    <div className="mb-14 items-center justify-between sm:flex space-y-4">
+      <div className="xl:w-1/4">
         <h2 className="text-2xl font-semibold max-sm:mb-4">Task Details</h2>
-        <ul className="assignment-status flex text-sm mt-2.5">
+        <ul className="assignment-status flex text-sm mt-2.5 gap-x-2">
           <li>
             <button
-              className={`mr-2 border-2 border-solid border-blue-600 rounded-full py-1 px-4 ${
+              className={`lg:px-3 border-2 border-solid border-blue-600 rounded-full py-1 px-2 ${
                 filter == "all" ? "bg-blue-500" : ""
               }`}
               onClick={() => setFilter("all")}
@@ -37,7 +37,7 @@ export default function TaskHeader({ onShow }) {
           </li>
           <li>
             <button
-              className={`mr-2 border-2 border-solid border-green-600 rounded-full py-1 px-4 ${
+              className={`border-2 border-solid border-green-600 rounded-full py-1 px-2 ${
                 filter == "complete" ? "bg-green-500" : ""
               }`}
               onClick={() => setFilter("complete")}
@@ -50,7 +50,7 @@ export default function TaskHeader({ onShow }) {
           </li>
           <li>
             <button
-              className={`border-2 border-solid border-orange-600 rounded-full py-1 px-4 ${
+              className={`border-2 border-solid border-orange-600 rounded-full py-1 px-2 ${
                 filter == "incomplete" ? "bg-orange-500" : ""
               }`}
               onClick={() => setFilter("incomplete")}
@@ -64,9 +64,9 @@ export default function TaskHeader({ onShow }) {
         </ul>
       </div>
 
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center flex-col sm:flex-row md:flex-col xl:flex-row xl:w-3/4 lg:gap-y-4 md:gap-y-4 gap-y-4">
         <TaskFilter />
-        <div className="flex items-center space-x-5">
+        <div className="flex items-center space-x-5 xl:w-[25%] xl:justify-end">
           <button
             className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
             onClick={onShow}

@@ -21,13 +21,16 @@ export default function TaskFilter() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="flex">
-          <div className="relative overflow-hidden rounded-lg text-gray-50 md:min-w-[380px] lg:min-w-[440px]">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full xl:w-[40%] flex xl:justify-center"
+      >
+        <div className="flex xl:w-3/4 w-full">
+          <div className="relative overflow-hidden rounded-lg text-gray-50 md:min-w-[380px] lg:min-w-[440px] w-full xl:min-w-[300px] ">
             <input
               type="search"
               id="search-dropdown"
-              className="z-20 block w-full bg-gray-800 px-4 py-2 pr-10 focus:outline-none"
+              className="z-20 block w-full bg-gray-800 px-4 py-2.5 pr-10 focus:outline-none"
               placeholder="Search Task"
               value={value}
               onChange={handleChange}
@@ -59,7 +62,7 @@ export default function TaskFilter() {
         </div>
       </form>
       <select
-        class="cursor-pointer rounded-md px-4 py-2 text-center text-white-600 bg-gray-800 focus:outline-none"
+        class="cursor-pointer rounded-md px-4 py-2 text-center text-white-600 bg-gray-800 focus:outline-none w-full xl:w-[35%] xl:m-0 xl:py-2.5"
         name="sortBy"
         value={sort}
         onChange={(e) => setSort(e.target.value)}

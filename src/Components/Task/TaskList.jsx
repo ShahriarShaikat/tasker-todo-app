@@ -42,24 +42,24 @@ export default function TaskList({ onModalShow }) {
   let taskHtml =
     filterTask.length > 0 ? (
       <div className="overflow-auto">
-        <table className="table-fixed overflow-auto xl:w-full">
+        <table className=" overflow-auto w-full">
           <thead>
             <tr>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize w-[48px]"></th>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize w-[300px]">
+              <th className="p-3 pb-3 text-sm font-semibold capitalize w-[48px]"></th>
+              <th className="p-3 pb-3 text-sm font-semibold capitalize w-[300px]">
                 {" "}
                 Title{" "}
               </th>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize w-full">
+              <th className="p-3 pb-3 text-sm font-semibold capitalize w-auto">
                 {" "}
                 Description{" "}
               </th>
 
-              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]">
+              <th className="p-3 pb-3 text-sm font-semibold capitalize w-[100px]">
                 {" "}
                 Priority{" "}
               </th>
-              <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[200px]">
+              <th className="p-3 pb-3 text-sm font-semibold capitalize w-[200px]">
                 {" "}
                 Options{" "}
               </th>

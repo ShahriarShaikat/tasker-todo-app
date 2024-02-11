@@ -52,7 +52,7 @@ export default function Task({ task, onModalShow }) {
       </td>
       <td>{title}</td>
       <td>
-        <div>{description}</div>
+        <div className="w-[300px] xl:w-full">{description}</div>
       </td>
 
       <td className="text-center">
